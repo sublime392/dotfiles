@@ -1,0 +1,8 @@
+IgnoreUnknown UseKeychain
+    UseKeychain yes
+
+AddKeysToAgent yes
+
+Host ib2.cuconnections.com
+    Port 18200
+
