@@ -1,0 +1,239 @@
+{:templates {:alfred "osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"\"'"
+             :km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
+             :hs "osascript -e 'tell application \"Hammerspoon\" to execute lua code \"%s\"'"}
+ :simlayers {:semicolon-mode {:key :semicolon}
+             :2-mode {:key :2}
+             :3-mode {:key :3}
+             :q-mode {:key :q}
+             :w-mode {:key :w}
+             :e-mode {:key :e}
+             :r-mode {:key :r}
+             :t-mode {:key :t}
+             :u-mode {:key :u}
+             :i-mode {:key :i}
+             :o-mode {:key :o}
+             :p-mode {:key :p}
+             :a-mode {:key :a}
+             :s-mode {:key :s}
+             :d-mode {:key :d}
+             :f-mode {:key :f}
+             :g-mode {:key :g}
+             :z-mode {:key :z}
+             :x-mode {:key :x}
+             :c-mode {:key :c}
+             :v-mode {:key :v}
+             :b-mode {:key :b}
+             :n-mode {:key :n}
+             :m-mode {:key :m}
+             :spacebar-mode {:key :spacebar}
+             :backquote-mode {:key :grave_accent_and_tilde}
+             ;:jsdot-mode {:key :period}
+             :godot-mode {:key :period}
+             :tab-mode {:key :tab}
+             :comma-mode {:key :comma}
+             :caps_lock-mode {:key :caps_lock}
+             :js-mode {:key :period}},
+ :main [{:des "capskey",
+         :rules [:caps_lock-mode
+                 [:open_bracket :!TOopen_bracket]
+                 [:close_bracket :!TOclose_bracket]
+                 [:semicolon :!TOsemicolon]
+                 [:quote :!TOquote]
+                 [:comma :!TOcomma]
+                 [:period :!TOperiod]
+                 [:slash :!TOslash]
+                 [:a :!TOa]
+                 [:b :!TOb]
+                 [:c :!TOc]
+                 [:d :!TOd]
+                 [:e :!TOe]
+                 [:f :!TOf]
+                 [:g :!TOg]
+                 [:h :!TOh]
+                 [:i :!TOi]
+                 [:j :!TOj]
+                 [:k :!TOk]
+                 [:l :!TOl]
+                 [:m :!TOm]
+                 [:n :!TOn]
+                 [:o :!TOo]
+                 [:p :!TOp]
+                 [:q :!TOq]
+                 [:r :!TOr]
+                 [:s :!TOs]
+                 [:t :!TOt]
+                 [:u :!TOu]
+                 [:v :!TOv]
+                 [:w :!TOw]
+                 [:x :!TOx]
+                 [:y :!TOy]
+                 [:z :!TOz]
+                 [:1 :!TO1]
+                 [:2 :!TO2]
+                 [:3 :!TO3]
+                 [:4 :!TO4]
+                 [:5 :!TO5]
+                 [:6 :!TO6]
+                 [:7 :!TO7]
+                 [:8 :!TO8]
+                 [:9 :!TO9]
+                 [:0 :!TO0]]},
+        {:des "wkey (apps)"
+         :rules [:w-mode
+                 [:s [:alfred "ssh" "net.isometry.alfred.ssh"]]
+                 [:k [:km "open: Safari"]]
+                 [:h [:km "open: Activity Monitor"]]
+                 [:t [:km "open: Trello"]]
+                 [:spacebar :!CSO7]
+                 [:caps_lock [:km "open: Finder"]]
+                 [:b [:km "open: BetterTouchTool"]]
+                 [:r [:km "open: Fantastical"]]
+                 [:e :!OSC1] ; Open Dash
+                 [:semicolon [:km "open: Xcode"]]
+                 [:period [:km "open: SnippetsLab"]]
+                 [:f [:km "open: Todoist"]]
+                 [:j [:km "open: iTerm"]]
+                 [:v [:km "open: VS Code"]]
+                 [:a [:km "Open repo ib-ng"]]
+                 [:l [:km "Open repo ib-laravel"]]
+                 [:1 [:km "Open: IB NG (vs code)"]]
+                 [:0 [:km "Open IB NG (webstorm)"]]
+                 [:9 [:km "Open IB Laravel (phpstorm)"]]
+                 [:2 [:km "Open: IB Laravel (vs code)"]]
+                 [:3 [:km "Open: IB Legacy (vs code)"]]
+                 [:q [:km "Open: TablePlus (ib)"]]
+                 [:y [:km "Open: Microsoft Teams"]]
+                 [:s [:km "open: Slack"]]
+                 [:u [:km "iTerm: profile: vagrant"]]
+                 [:i [:km "iTerm: profile: IB Angular"]]
+                 [:o [:km "iTerm: profile: deploy_devs"]]]},
+        {:des "okey (alfred)"
+         :rules [:o-mode
+                 [:1 :!C1]
+                 [:2 :!C2]
+                 [:3 :!C3]
+                 [:4 :!C4]
+                 [:5 :!C5]
+                 [:6 :!C6]
+                 [:w :!CObackslash] ; 1Password search
+                 [:caps_lock [:alfred "search folders" "nikivi.search.folders"]]
+                 [:g [:alfred "search dash profiles" "nikivi.dash.profiles"]]
+                 [:z [:alfred "search PDF files" "nikivi.search.files"]]
+                 [:spacebar [:alfred "search snippets" "com.renfei.SnippetsLab.AlfredWorkflow"]]
+                 [:grave_accent_and_tilde [:alfred "search processes" "com.vitorgalvao.alfred.processcontrol"]]
+                 [:e [:alfred "numi" "com.nikolaeu.numi"]]
+                 [:q [:alfred "search downloads" "recentdownloads.ddjfreedom"]]
+                 [:t [:km "Todoist with current url as note (read)"]]
+                 [:a [:alfred "search files" "nikivi.manage.wiki"]]
+                 [:c [:alfred "search emoji" "com.github.jsumners.alfred-emoji"]]
+                 [:i [:alfred "search tty sessions" "net.isometry.alfred.tty"]]
+                 [:f [:alfred "search repos" "net.deanishe.alfred-git-repos"]]
+                 [:n [:alfred "search lists" "nikivi.learn.anything"]]
+                 [:m [:alfred "search lists" "nikivi.awesome.lists"]]
+                 [:s [:alfred "search clones" "com.vitorgalvao.alfred.directories"]]
+                 [:d [:alfred "search desktop" "com.vitorgalvao.alfred.directories"]]
+                 [:j [:alfred "search km macros" "iansinnott.keyboardmaestro"]]
+                 [:x [:alfred "search workflows" "org.jeef.workflowdirectory"]]
+                 [:k [:alfred "search menu bar" "com.tedwise.menubarsearch"]]]},
+        {:des "akey (ctrl)"
+         :rules [:a-mode
+                 [:spacebar :!CT9] ; Search selection on Google
+                 [:open_bracket :!Topen_bracket]
+                 [:close_bracket :!Tclose_bracket]
+                 [:semicolon :!Tsemicolon]
+                 [:quote :!Tquote]
+                 [:comma :!Tcomma]
+                 [:period :!Tperiod]
+                 [:slash :!Tslash]
+                 [:b :!Tb]
+                 [:c :!Tc]
+                 [:d :!Td]
+                 [:e :!Te]
+                 [:f :!Tf]
+                 [:g :!Tg]
+                 [:h :!Th]
+                 [:i :!Ti]
+                 [:j :!Tj]
+                 [:k :!Tk]
+                 [:l :!Tl]
+                 [:m :!Tm]
+                 [:n :!Tn]
+                 [:o :!To]
+                 [:p :!Tp]
+                 [:q :!Tq]
+                 [:r :!Tr]
+                 [:s :!Ts]
+                 [:t :!Tt]
+                 [:u :!Tu]
+                 [:v :!Tv]
+                 [:w :!Tw]
+                 [:x :!Tx]
+                 [:y :!Ty]
+                 [:z :!Tz]
+                 [:1 :!T1]
+                 [:2 :!T2]
+                 [:3 :!T3]
+                 [:4 :!T4]
+                 [:5 :!T5]
+                 [:6 :!T6]
+                 [:7 :!T7]
+                 [:8 :!T8]
+                 [:9 :!T9]
+                 [:0 :!T0]]},
+        {:des "dkey (mouse)"
+         :rules [:d-mode
+                 [:j {:mkey {:vwheel 100}}]
+                 [:k {:mkey {:vwheel -100}}]
+                 [:a :!CT6] ; Smart zoom
+                 [:i :!Ckeypad_hyphen] ; Zoom out
+                 [:o :!Ckeypad_plus] ; Zoom in
+                 [:l [:km "Select line and google"]]
+                 [:n [:km "Open URL in clipboard in Safari"]]
+                 [:g [:hs "someAlert"]]
+                 [:h [:km "Google Searchio selected word"]]
+                 [:m [:km "Google clipboard"]]
+                 [:b {:pkey :button3}] ; Middle click
+                 [:z {:pkey :button2}] ; Right click
+                 [:v {:pkey :button1}] ; Left click
+                 [:period :!CTO3]]}, ; Mission control
+        {:des "fkey (essential)"
+         :rules [:f-mode
+                 [:e :!CO8] ; Alfred clipboard history search
+                 [:spacebar :!CT8] ; Search selection in Dictionary (wiki)
+                 [:s [:km "New SnippetsLab snippet"]]
+                 [:w [:km "Get bitly url of current safari url"]]
+                 [:period [:km "edit: Karabiner edn"]]
+                 [:w :!CTO4] ; Alfred bitly
+                 [:j [:km "Open 1st iTerm tab"]]
+                 [:h [:km "Make markdown link from selection {link}"]]
+                 [:1 [:km "Lowercase selected text"]]
+                 [:p [:km "Acquire POSIX path of file associated with front window of front application"]]
+                 [:open_bracket :!CT5] ; Turn display on/off
+                 [:q [:km "Uppercase selected text"]]
+                 [:quote [:!Cleft_arrow :!CSright_arrow]] ; Highlight current line
+                 [:comma  [:km "Add safari link to selected markdown text"]]
+                 [:k :return_or_enter]
+                 [:l :!Creturn_or_enter]
+                 [:3 :!CTOp] ; Sip color picker
+                 [:2 :!COclose_bracket] ; PixelSnap
+                 [:n :!Freturn_or_enter]
+                 [:m :!Sreturn_or_enter]
+                 [:i :!Treturn_or_enter]
+                 [:o :!Oreturn_or_enter]]}
+        {:des "m (top sites)"
+         :rules [:m-mode
+                 [:1 [:km "w: ibdev1"]]
+                 [:2 [:km "w: ibdev2"]]
+                 [:i [:km "w: Localhost"]]
+                 [:k [:km "w: GitHub"]]
+                 [:a [:km "w: Google"]]
+                 [:d [:km "w: Medium"]]
+                 [:f [:km "w: Confluence"]]
+                 [:j [:km "w: YouTube"]]
+                 [:r [:km "w: Jira"]]
+                 [:b [:km "w: Bitbucket"]]
+                 [:l [:km "w: CodeSandbox"]]
+                 [:o [:km "w: regex101"]]
+                 [:semicolon [:km "w: Stack Overflow"]]]}
+        ]}
+
