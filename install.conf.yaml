@@ -1,3 +1,7 @@
+- defaults:
+    link:
+        relink: true
+
 - clean: ['~']
 
 - link:
@@ -9,5 +13,13 @@
         create: true
     ~/.zprofile: zprofile
     ~/.zshrc: zshrc
+    ~/.config/karabiner:
+        path: config/karabiner/
+        create: true
+    ~/.config/karabiner.edn:
+        path: config/karabiner.edn
+        create: true
 
 
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
