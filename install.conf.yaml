@@ -1,13 +1,22 @@
+- defaults:
+    link:
+        relink: true
+
 - clean: ['~']
 
 - link:
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
     ~/.gitconfig: gitconfig
-    ~/.ssh/config:
-        path: ssh/config
-        create: true
     ~/.zprofile: zprofile
     ~/.zshrc: zshrc
+    ~/.config/karabiner:
+        path: config/karabiner/
+        create: true
+    ~/.config/karabiner.edn:
+        path: config/karabiner.edn
+        create: true
 
 
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
