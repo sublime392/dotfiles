@@ -16,6 +16,9 @@
     ~/.config/karabiner.edn:
         path: config/karabiner.edn
         create: true
+    ~/.ssh/config:
+        path: ssh/config
+        create: true
 
 
 - shell:
