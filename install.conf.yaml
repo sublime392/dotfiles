@@ -13,6 +13,9 @@
     ~/.config/karabiner:
         path: config/karabiner/
         create: true
+    ~/.hammerspoon:
+        path: hammerspoon/
+        create: true
     ~/.config/karabiner.edn:
         path: config/karabiner.edn
         create: true
