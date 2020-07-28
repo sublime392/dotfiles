@@ -3,7 +3,7 @@ Host *.cuconnections.com
   AddKeysToAgent yes
   UseKeychain yes
   IdentityFile ~/.ssh/ib2_rsa
-  Match user deployer,andy
+  Match user deployer,andy,statewide,acclaim,mtempire,gpacu,acfcu,guco,actors,lionsharecu,emrspcu,dpfcu,centuryfirst
     IdentityFile ~/.ssh/andy_rsa
 
 
