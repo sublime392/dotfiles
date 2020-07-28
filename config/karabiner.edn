@@ -86,7 +86,7 @@
                  [:3 [:km "Open: IB Legacy (vs code)"]]
                  [:9 [:km "Open IB Laravel (phpstorm)"]]
                  [:a [:km "Open repo ib-ng"]]
-                 [:b [:km "open: BetterTouchTool"]]
+                 [:b [:km "vpn: Stop CBS"]]
                  [:e :!OSC1] ; Open Dash
                  [:f [:km "open: Todoist"]]
                  [:h [:km "open: Activity Monitor"]]
@@ -101,7 +101,7 @@
                  [:s [:km "open: Slack"]]
                  [:t [:km "open: Trello"]]
                  [:u [:km "iTerm: profile: vagrant"]]
-                 [:v [:km "open: VS Code"]]
+                 [:v [:km "vpn: Start CBS"]]
                  [:y [:km "Open: Microsoft Teams"]]
                  [:spacebar :!CSO7]
                  [:caps_lock [:km "open: Finder"]]
