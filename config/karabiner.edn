@@ -135,6 +135,7 @@
                  [:d [:alfred "search desktop" "com.vitorgalvao.alfred.directories"]]
                  [:j [:alfred "search km macros" "iansinnott.keyboardmaestro"]]
                  [:x [:alfred "search workflows" "org.jeef.workflowdirectory"]]
+                 [:b [:km "Open safari tab in chrome"]]
                  [:k [:alfred "search menu bar" "com.tedwise.menubarsearch"]]]},
         {:des "akey (ctrl)"
          :rules [:a-mode
@@ -221,6 +222,15 @@
                  [:m :!Sreturn_or_enter]
                  [:i :!Treturn_or_enter]
                  [:o :!Oreturn_or_enter]]}
+        {:des "ekey (edits)"
+         :rules [:e-mode
+                 [:k  [:km "edit: Karabiner edn"]]
+                 [:h  [:km "edit: Hammerspoon"]]
+                 ]}
+        {:des "rkey (remote)"
+         :rules [:r-mode
+                 [:c  [:km "VNC to Carls Mac"]]
+                 ]}
         {:des "m (top sites)"
          :rules [:m-mode
                  [:1 [:km "w: ibdev1"]]

@@ -175,86 +175,86 @@
       "from" : {
         "key_code" : "f1"
       },
-      "to" : [ {
+      "to" : {
         "consumer_key_code" : "display_brightness_decrement"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f2"
       },
-      "to" : [ {
+      "to" : {
         "consumer_key_code" : "display_brightness_increment"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f3"
       },
-      "to" : [ {
+      "to" : {
         "key_code" : "mission_control"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f4"
       },
-      "to" : [ {
+      "to" : {
         "key_code" : "launchpad"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f5"
       },
-      "to" : [ {
+      "to" : {
         "key_code" : "illumination_decrement"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f6"
       },
-      "to" : [ {
+      "to" : {
         "key_code" : "illumination_increment"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f7"
       },
-      "to" : [ {
+      "to" : {
         "consumer_key_code" : "rewind"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f8"
       },
-      "to" : [ {
+      "to" : {
         "consumer_key_code" : "play_or_pause"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f9"
       },
-      "to" : [ {
+      "to" : {
         "consumer_key_code" : "fastforward"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f10"
       },
-      "to" : [ {
+      "to" : {
         "consumer_key_code" : "mute"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f11"
       },
-      "to" : [ {
+      "to" : {
         "consumer_key_code" : "volume_decrement"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f12"
       },
-      "to" : [ {
+      "to" : {
         "consumer_key_code" : "volume_increment"
-      } ]
+      }
     } ],
     "name" : "Default profile",
     "parameters" : {
@@ -264,7 +264,6 @@
     "simple_modifications" : [ ],
     "virtual_hid_keyboard" : {
       "country_code" : 0,
-      "indicate_sticky_modifier_keys_state" : true,
       "mouse_key_xy_scale" : 100
     }
   }, {
@@ -8450,147 +8449,6 @@
           }
         } ]
       }, {
-        "description" : "ekey (edits)",
-        "manipulators" : [ {
-          "from" : {
-            "key_code" : "k"
-          },
-          "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"edit: Karabiner edn\"'"
-          } ],
-          "conditions" : [ {
-            "name" : "e-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "e-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"edit: Karabiner edn\"'"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "e"
-            }, {
-              "key_code" : "k"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "e-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        }, {
-          "from" : {
-            "key_code" : "h"
-          },
-          "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"edit: Hammerspoon\"'"
-          } ],
-          "conditions" : [ {
-            "name" : "e-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "e-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"edit: Hammerspoon\"'"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "e"
-            }, {
-              "key_code" : "h"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "e-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        } ]
-      }, {
-        "description" : "rkey (remote)",
-        "manipulators" : [ {
-          "from" : {
-            "key_code" : "c"
-          },
-          "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"VNC to Carls Mac\"'"
-          } ],
-          "conditions" : [ {
-            "name" : "r-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "r-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"VNC to Carls Mac\"'"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "r"
-            }, {
-              "key_code" : "c"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "r-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        } ]
-      }, {
         "description" : "m (top sites)",
         "manipulators" : [ {
           "from" : {
@@ -9185,86 +9043,86 @@
       "from" : {
         "key_code" : "f1"
       },
-      "to" : [ {
+      "to" : {
         "consumer_key_code" : "display_brightness_decrement"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f2"
       },
-      "to" : [ {
+      "to" : {
         "consumer_key_code" : "display_brightness_increment"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f3"
       },
-      "to" : [ {
+      "to" : {
         "key_code" : "mission_control"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f4"
       },
-      "to" : [ {
+      "to" : {
         "key_code" : "launchpad"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f5"
       },
-      "to" : [ {
+      "to" : {
         "key_code" : "illumination_decrement"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f6"
       },
-      "to" : [ {
+      "to" : {
         "key_code" : "illumination_increment"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f7"
       },
-      "to" : [ {
+      "to" : {
         "consumer_key_code" : "rewind"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f8"
       },
-      "to" : [ {
+      "to" : {
         "consumer_key_code" : "play_or_pause"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f9"
       },
-      "to" : [ {
+      "to" : {
         "consumer_key_code" : "fast_forward"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f10"
       },
-      "to" : [ {
+      "to" : {
         "consumer_key_code" : "mute"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f11"
       },
-      "to" : [ {
+      "to" : {
         "consumer_key_code" : "volume_decrement"
-      } ]
+      }
     }, {
       "from" : {
         "key_code" : "f12"
       },
-      "to" : [ {
+      "to" : {
         "consumer_key_code" : "volume_increment"
-      } ]
+      }
     } ],
     "name" : "Default",
     "parameters" : {
@@ -9274,7 +9132,6 @@
     "simple_modifications" : [ ],
     "virtual_hid_keyboard" : {
       "country_code" : 0,
-      "indicate_sticky_modifier_keys_state" : true,
       "mouse_key_xy_scale" : 100
     }
   } ]

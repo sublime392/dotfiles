@@ -10,8 +10,10 @@ function devLayout(eventName, params)
     hs.application.launchOrFocus("Trello")
     hs.application.launchOrFocus("Microsoft Teams")
     hs.application.launchOrFocus("Sococo")
-    hs.application.launchOrFocus("Airmail")
+    -- hs.application.launchOrFocus("Airmail")
+    hs.application.launchOrFocus("Unibox")
     hs.application.launchOrFocus("Sonos")
+    hs.application.launchOrFocus("Notes")
 
     -- local laravelName = hs.window.find("ib%-laravel"):title()
     -- local ngName = hs.window.find("ib%-ng"):title()
@@ -25,9 +27,10 @@ function devLayout(eventName, params)
         {"iTerm2", nil, bigScreen, {x = 0.74, y = 0.25, w = 0.26, h = 0.25}, nil, nil},
         {"Trello", nil, bigScreen, {x = 0.74, y = 0.5, w = 0.26, h = 0.25}, nil, nil},
         {"Microsoft Teams", nil, bigScreen, {x = 0.7, y = 0.75, w = 0.3, h = 0.25}, nil, nil},
-        {"Sococo", nil, laptopScreen, {x = 0, y = 0.5, w = 0.5, h = 0.5}, nil, nil},
-        {"Airmail", nil, laptopScreen, {x = 0.12, y = 0.12, w = 0.8, h = 0.5}, nil, nil},
-        {"Sonos", nil, laptopScreen, {x = 0.2, y = 0.15, w = 0.6, h = 0.7}, nil, nil}
+        -- {"Sococo", nil, laptopScreen, {x = 0, y = 0.5, w = 0.5, h = 0.5}, nil, nil},
+        {"Unibox", nil, laptopScreen, {x = 0.12, y = 0.12, w = 0.8, h = 0.5}, nil, nil},
+        {"Sonos", nil, laptopScreen, {x = 0.2, y = 0.15, w = 0.6, h = 0.7}, nil, nil},
+        {"Notes", nil, bigScreen, {x = 0.37, y = 0.85, w = 0.37, h = 0.15}, nil, nil}
     }
     if(hs.screen.find(bigScreen)) then
         hs.layout.apply(windowLayout)
@@ -37,6 +40,7 @@ function devLayout(eventName, params)
     hs.applescript('tell application "Keyboard Maestro Engine" to do script "iTerm: profile: IB Angular"')
     hs.applescript('tell application "Keyboard Maestro Engine" to do script "iTerm: profile: IB Angular"')
     hs.applescript('tell application "Keyboard Maestro Engine" to do script "iTerm: profile: IB Laravel"')
+    hs.applescript('tell application "Amphetamine" to start new session with options {duration:12, interval:hours, displaySleepAllowed:false}')
     -- hs.applescript('tell application "Keyboard Maestro Engine" to do script "iTerm: profile: IB Laravel Queue default"')
     -- hs.applescript('tell application "Keyboard Maestro Engine" to do script "iTerm: profile: IB Laravel Queue nonpbf"')
 end
@@ -47,6 +51,7 @@ hs.urlevent.bind("dev-layout", devLayout)
 function launchLaravelQueueDefault(eventName, params)
     hs.applescript('tell application "Keyboard Maestro Engine" to do script "iTerm: profile: IB Laravel Queue default"')
     hs.applescript('tell application "Keyboard Maestro Engine" to do script "iTerm: profile: IB Laravel Queue nonpbf"')
+    hs.applescript('tell application "Keyboard Maestro Engine" to do script "iTerm: profile: IB Laravel Cron"')
 end
 hs.urlevent.bind("laravel-queue-default", launchLaravelQueueDefault)
 
@@ -57,6 +62,7 @@ hs.urlevent.bind("laravel-queue-default", launchLaravelQueueDefault)
 
 
 function doneWorking(eventName, params)
+    hs.applescript('tell application "Amphetamine" to end session')
     hs.applescript('tell application "Keyboard Maestro Engine" to do script "vpn: Stop CBS"')
     local closeable = hs.application.get('iTerm2')
     if (closeable ) then
@@ -82,7 +88,15 @@ function doneWorking(eventName, params)
     if (closeable ) then
         closeable:kill()
     end
+    closeable = hs.application.get('GitFox')
+    if (closeable ) then
+        closeable:kill()
+    end
     closeable = hs.application.get('TablePlus')
+    if (closeable ) then
+        closeable:kill()
+    end
+    closeable = hs.application.get('Transmit')
     if (closeable ) then
         closeable:kill()
     end
@@ -98,8 +112,8 @@ function usbDeviceCallback(data)
         end
     end
 end
-usbWatcher = hs.usb.watcher.new(usbDeviceCallback)
-usbWatcher:start()
+-- usbWatcher = hs.usb.watcher.new(usbDeviceCallback)
+-- usbWatcher:start()
 
 
 function moveCodeWindow(codeWindow)

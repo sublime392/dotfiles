@@ -2,7 +2,9 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ANDROID_HOME=/Users/baconcheesefry/Library/Android/sdk
 export CERTIFICATE_FOLDER=/Users/baconcheesefry/code/android/certificates
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home
+alias setJDK8='unset JAVA_HOME;export JAVA_HOME=`/usr/libexec/java_home -v 1.8`'
+alias setJDK11='unset JAVA_HOME;export JAVA_HOME=`/usr/libexec/java_home -v 11`'
+setJDK11
 export M2_HOME=/Users/baconcheesefry/code/apache-maven-3.6.2/
 
 PATH=$ANDROID_HOME/platform-tools:$PATH
@@ -10,10 +12,16 @@ PATH=$ANDROID_HOME/tools:$PATH
 PATH=$PATH:~/.composer/vendor/bin
 PATH=/usr/local/opt/curl/bin:$PATH
 PATH=$PATH:$M2_HOME/bin
-PATH=/usr/local/opt/php@7.2/bin:$PATH
-PATH=/usr/local/opt/php@7.2/sbin:$PATH
+PATH=/usr/local/opt/php@7.4/bin:$PATH
+PATH=/usr/local/opt/php@7.4/sbin:$PATH
 PATH=/usr/local/opt/python/libexec/bin:$PATH
-export PATH="/usr/local/opt/mariadb@10.3/bin:$PATH"
+PATH=/usr/local/sbin:$PATH
+PATH=$PATH:/usr/local/bin
+export PATH="/usr/local/opt/mariadb@10.5/bin:$PATH"
+
+export GUILE_LOAD_PATH="/usr/local/share/guile/site/3.0"
+export GUILE_LOAD_COMPILED_PATH="/usr/local/lib/guile/3.0/site-ccache"
+export GUILE_SYSTEM_EXTENSIONS_PATH="/usr/local/lib/guile/3.0/extensions"
 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
@@ -135,3 +143,6 @@ if [ -f /Users/baconcheesefry/.tnsrc ]; then
     source /Users/baconcheesefry/.tnsrc 
 fi
 ###-tns-completion-end-###
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
