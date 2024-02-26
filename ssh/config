@@ -1,11 +1,11 @@
 Host *.cuconnections.com
   AddKeysToAgent yes
   UseKeychain yes
-  IdentityFile /Users/baconcheesefry/.ssh/ib2_rsa
+  IdentityFile ~/.ssh/ib2_rsa
   Match user deployer,andy,statewide,acclaim,mtempire,gpacu,acfcu,guco,actors,lionsharecu,emrspcu,dpfcu,centuryfirst
     AddKeysToAgent yes
     UseKeychain yes
-    IdentityFile /Users/baconcheesefry/.ssh/andy_rsa
+    IdentityFile ~/.ssh/andy_rsa
 
 
 

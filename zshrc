@@ -1,39 +1,50 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export ANDROID_HOME=/Users/baconcheesefry/Library/Android/sdk
-export CERTIFICATE_FOLDER=/Users/baconcheesefry/code/android/certificates
-alias setJDK8='unset JAVA_HOME;export JAVA_HOME=`/usr/libexec/java_home -v 1.8`'
-alias setJDK11='unset JAVA_HOME;export JAVA_HOME=`/usr/libexec/java_home -v 11`'
-setJDK11
-export M2_HOME=/Users/baconcheesefry/code/apache-maven-3.6.2/
+# export ANDROID_HOME=/Users/baconcheesefry/Library/Android/sdk
+# export CERTIFICATE_FOLDER=/Users/baconcheesefry/code/android/certificates
+# alias setJDK8='unset JAVA_HOME;export JAVA_HOME=`/usr/libexec/java_home -v 1.8`'
+# alias setJDK11='unset JAVA_HOME;export JAVA_HOME=`/usr/libexec/java_home -v 11`'
+# setJDK11
+#export M2_HOME=/Users/baconcheesefry/code/apache-maven-3.6.2/
 
-PATH=$ANDROID_HOME/platform-tools:$PATH
-PATH=$ANDROID_HOME/tools:$PATH
-PATH=$PATH:~/.composer/vendor/bin
-PATH=/usr/local/opt/curl/bin:$PATH
-PATH=$PATH:$M2_HOME/bin
-PATH=/usr/local/opt/php@7.4/bin:$PATH
-PATH=/usr/local/opt/php@7.4/sbin:$PATH
-PATH=/usr/local/opt/python/libexec/bin:$PATH
-PATH=/usr/local/sbin:$PATH
-PATH=$PATH:/usr/local/bin
-export PATH="/usr/local/opt/mariadb@10.5/bin:$PATH"
-
-export GUILE_LOAD_PATH="/usr/local/share/guile/site/3.0"
-export GUILE_LOAD_COMPILED_PATH="/usr/local/lib/guile/3.0/site-ccache"
-export GUILE_SYSTEM_EXTENSIONS_PATH="/usr/local/lib/guile/3.0/extensions"
-
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"
-
-function homestead() {
-    ( cd ~/Homestead && vagrant $* )
-}
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 
+# PATH=$ANDROID_HOME/platform-tools:$PATH
+# PATH=$ANDROID_HOME/tools:$PATH
+# echo $PATH
+# PATH=$PATH:~/.composer/vendor/bin
+# PATH=/usr/local/opt/curl/bin:$PATH
+# PATH=$PATH:$M2_HOME/bin
+# PATH=/usr/local/opt/php@7.4/bin:$PATH
+# PATH=/usr/local/opt/php@7.4/sbin:$PATH
+# PATH=/usr/local/opt/python/libexec/bin:$PATH
+# PATH=/opt/homebrew/bin:$PATH
+# PATH=/usr/local/sbin:$PATH
+# PATH=$PATH:/usr/local/bin
+# PATH="$PATH:~/.yarn/bin"
+# export PATH="/opt/homebrew/opt/mariadb@10.5/bin:$PATH"
 
+# export GUILE_LOAD_PATH="/usr/local/share/guile/site/3.0"
+# export GUILE_LOAD_COMPILED_PATH="/usr/local/lib/guile/3.0/site-ccache"
+# export GUILE_SYSTEM_EXTENSIONS_PATH="/usr/local/lib/guile/3.0/extensions"
 
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh" # This loads nvm
+# [ -s "/opt/homebrew/opt/nvm/etc/bash_completion" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion"
+
+# export LDFLAGS="-L/opt/homebrew/opt/php/lib"
+# # export CPPFLAGS="-I/opt/homebrew/opt/php/include"
+# # export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+# export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
+# export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"
+
+# echo $JAVA_HOME
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/baconcheesefry/.oh-my-zsh"
@@ -42,7 +53,7 @@ export ZSH="/Users/baconcheesefry/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -51,7 +62,7 @@ ZSH_THEME="agnoster"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+#CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -61,7 +72,7 @@ ZSH_THEME="agnoster"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -102,7 +113,12 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git common-aliases history-substring-search npm)
+plugins=(
+  common-aliases
+  history-substring-search
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -134,15 +150,41 @@ source $ZSH/oh-my-zsh.sh
 
 ###-tns-completion-start-###
 if [ -f /Users/baconcheesefry/.tnsrc ]; then
-    source /Users/baconcheesefry/.tnsrc
-fi
-###-tns-completion-end-###
-
-###-tns-completion-start-###
-if [ -f /Users/baconcheesefry/.tnsrc ]; then 
-    source /Users/baconcheesefry/.tnsrc 
+  source /Users/baconcheesefry/.tnsrc
 fi
 ###-tns-completion-end-###
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+
+# export PATH="/opt/homebrew/sbin:$PATH"
+# export PATH="/opt/homebrew/bin:$PATH"
+# PATH=/opt/homebrew/opt/php/sbin:$PATH
+# PATH=/opt/homebrew/opt/php/bin:$PATH
+# export PATH=/opt/homebrew/opt/ruby@2.7/bin:$PATH
+# export PATH=/opt/homebrew/lib/ruby/gems/2.7.0/bin:$PATH
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init -)"
+fi
+
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
+
+# export PATH="/opt/homebrew/opt/php@8.1/bin:$PATH"
+# export PATH="/opt/homebrew/opt/php@8.1/sbin:$PATH"
+
+# export PATH="/opt/homebrew/opt/php@8.1/bin:$PATH"
+# export PATH="/opt/homebrew/opt/php@8.1/sbin:$PATH"
+
+# echo $JAVA_HOME
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

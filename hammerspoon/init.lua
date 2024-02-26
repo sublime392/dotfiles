@@ -2,7 +2,7 @@
 
 function devLayout(eventName, params)
     hs.applescript('tell application "Keyboard Maestro Engine" to do script "vpn: Start CBS"')
-    hs.execute('/usr/local/bin/code -n "/Users/baconcheesefry/code/vscode/ib-ng.code-workspace"')
+    hs.execute('/usr/local/bin/code -n "/Users/baconcheesefry/code/vscode/ib_nx.code-workspace"')
     hs.execute('/usr/local/bin/code -n "/Users/baconcheesefry/code/vscode/ib-laravel.code-workspace"')
     hs.application.launchOrFocus("Safari")
     hs.application.launchOrFocus("Slack")
@@ -12,8 +12,8 @@ function devLayout(eventName, params)
     hs.application.launchOrFocus("Sococo")
     -- hs.application.launchOrFocus("Airmail")
     hs.application.launchOrFocus("Unibox")
-    hs.application.launchOrFocus("Sonos")
-    hs.application.launchOrFocus("Notes")
+    -- hs.application.launchOrFocus("Sonos")
+    -- hs.application.launchOrFocus("Notes")
 
     -- local laravelName = hs.window.find("ib%-laravel"):title()
     -- local ngName = hs.window.find("ib%-ng"):title()
@@ -28,18 +28,18 @@ function devLayout(eventName, params)
         {"Trello", nil, bigScreen, {x = 0.74, y = 0.5, w = 0.26, h = 0.25}, nil, nil},
         {"Microsoft Teams", nil, bigScreen, {x = 0.7, y = 0.75, w = 0.3, h = 0.25}, nil, nil},
         -- {"Sococo", nil, laptopScreen, {x = 0, y = 0.5, w = 0.5, h = 0.5}, nil, nil},
-        {"Unibox", nil, laptopScreen, {x = 0.12, y = 0.12, w = 0.8, h = 0.5}, nil, nil},
-        {"Sonos", nil, laptopScreen, {x = 0.2, y = 0.15, w = 0.6, h = 0.7}, nil, nil},
-        {"Notes", nil, bigScreen, {x = 0.37, y = 0.85, w = 0.37, h = 0.15}, nil, nil}
+        -- {"Unibox", nil, laptopScreen, {x = 0.12, y = 0.12, w = 0.8, h = 0.5}, nil, nil},
+        -- {"Sonos", nil, laptopScreen, {x = 0.2, y = 0.15, w = 0.6, h = 0.7}, nil, nil},
+        -- {"Notes", nil, bigScreen, {x = 0.37, y = 0.85, w = 0.37, h = 0.15}, nil, nil}
     }
     if(hs.screen.find(bigScreen)) then
         hs.layout.apply(windowLayout)
     end
 
-    hs.applescript('tell application "Keyboard Maestro Engine" to do script "iTerm: profile: IB Angular"')
-    hs.applescript('tell application "Keyboard Maestro Engine" to do script "iTerm: profile: IB Angular"')
-    hs.applescript('tell application "Keyboard Maestro Engine" to do script "iTerm: profile: IB Angular"')
-    hs.applescript('tell application "Keyboard Maestro Engine" to do script "iTerm: profile: IB Laravel"')
+    -- hs.applescript('tell application "Keyboard Maestro Engine" to do script "iTerm: profile: IB Angular"')
+    -- hs.applescript('tell application "Keyboard Maestro Engine" to do script "iTerm: profile: IB Angular"')
+    -- hs.applescript('tell application "Keyboard Maestro Engine" to do script "iTerm: profile: IB Angular"')
+    -- hs.applescript('tell application "Keyboard Maestro Engine" to do script "iTerm: profile: IB Laravel"')
     hs.applescript('tell application "Amphetamine" to start new session with options {duration:12, interval:hours, displaySleepAllowed:false}')
     -- hs.applescript('tell application "Keyboard Maestro Engine" to do script "iTerm: profile: IB Laravel Queue default"')
     -- hs.applescript('tell application "Keyboard Maestro Engine" to do script "iTerm: profile: IB Laravel Queue nonpbf"')
@@ -88,10 +88,10 @@ function doneWorking(eventName, params)
     if (closeable ) then
         closeable:kill()
     end
-    closeable = hs.application.get('GitFox')
-    if (closeable ) then
-        closeable:kill()
-    end
+    -- closeable = hs.application.get('GitFox')
+    -- if (closeable ) then
+    --     closeable:kill()
+    -- end
     closeable = hs.application.get('TablePlus')
     if (closeable ) then
         closeable:kill()
@@ -121,7 +121,7 @@ function moveCodeWindow(codeWindow)
     local laptopScreen = "Color LCD"
     local bigScreen = "U4008B"
     local position = {x = 0, y = 0.5, w = 0.37, h = 0.5}
-    if(codeWindow:title():find("ib%-ng")) then
+    if(codeWindow:title():find("ib%_nx")) then
         position = {x = 0, y = 0, w = 0.37, h = 0.5}
     end
 
@@ -133,7 +133,7 @@ function moveCodeWindow(codeWindow)
     end
 end
 local wf=hs.window.filter
-wf_code = wf.new(false):setAppFilter('Code',{allowTitles={'ib%-laravel %(Workspace%)','ib%-ng %(Workspace%)'}})
+wf_code = wf.new(false):setAppFilter('Code',{allowTitles={'ib%-laravel %(Workspace%)','ib%_nx %(Workspace%)'}})
 wf_code:subscribe(wf.windowCreated,moveCodeWindow, true)
 
 function reloadConfig(files)

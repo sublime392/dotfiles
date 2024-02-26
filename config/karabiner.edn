@@ -1,6 +1,10 @@
 {:templates {:alfred "osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"\"'"
              :km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
+             :sc "osascript -e 'tell application \"Shortcuts\" to run the shortcut named \"%s\"'"
              :hs "osascript -e 'tell application \"Hammerspoon\" to execute lua code \"%s\"'"}
+;;  :modifiers {
+;;              :shift {:mandatory [:right_shift :left_shift]}}
+
  :simlayers {:semicolon-mode {:key :semicolon}
              :2-mode {:key :2}
              :3-mode {:key :3}
@@ -10,6 +14,7 @@
              :r-mode {:key :r}
              :t-mode {:key :t}
              :u-mode {:key :u}
+             :u-shift-mode {:key :u :modi {:mandatory :left_shift}}
              :i-mode {:key :i}
              :o-mode {:key :o}
              :p-mode {:key :p}
@@ -27,12 +32,11 @@
              :m-mode {:key :m}
              :spacebar-mode {:key :spacebar}
              :backquote-mode {:key :grave_accent_and_tilde}
-             ;:jsdot-mode {:key :period}
-             :godot-mode {:key :period}
              :tab-mode {:key :tab}
              :comma-mode {:key :comma}
              :caps_lock-mode {:key :caps_lock}
-             :js-mode {:key :period}},
+             :js-mode {:key :period}}
+
  :main [{:des "capskey",
          :rules [:caps_lock-mode
                  [:open_bracket :!TOopen_bracket]
@@ -78,6 +82,14 @@
                  [:8 :!TO8]
                  [:9 :!TO9]
                  [:0 :!TO0]]},
+        {:des "ukey (utilities)"
+         :rules [:u-mode
+                [:equal_sign [:km "Music Volume Up"]]
+                [:hyphen [:km "Music Volume Down"]]]},
+        {:des "ukey shift (utilities)"
+         :rules [:u-shift-mode
+                [:equal_sign [:km "Music Volume Up Biggly"]]
+                [:hyphen [:km "Music Volume Down Biggly"]]]},
         {:des "wkey (apps)"
          :rules [:w-mode
                  [:0 [:km "Open IB NG (webstorm)"]]
@@ -230,6 +242,14 @@
         {:des "rkey (remote)"
          :rules [:r-mode
                  [:c  [:km "VNC to Carls Mac"]]
+                 [:m  [:km "VNC to Andrews MacBook 2018"]]
+                 [:g  [:sc "Teams"]]
+                 [:1  [:km "remote: CHIPS1"]]
+                 [:2  [:km "remote: CHIPS2"]]
+                 [:3  [:km "remote: CHIPS_dev"]]
+                 [:4  [:km "remote: CHIPS_dev_admin"]]
+                 [:5  [:km "remote: Java Builder"]]
+                 [:6  [:km "remote: Andrew Office"]]
                  ]}
         {:des "m (top sites)"
          :rules [:m-mode

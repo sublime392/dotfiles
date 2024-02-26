@@ -1,28 +1,31 @@
 - defaults:
-    link:
-        relink: true
+      link:
+          relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
-    ~/.bash_profile: bash_profile
-    ~/.bashrc: bashrc
-    ~/.gitconfig: gitconfig
-    ~/.zprofile: zprofile
-    ~/.zshrc: zshrc
-    ~/.config/karabiner:
-        path: config/karabiner/
-        create: true
-    ~/.hammerspoon:
-        path: hammerspoon/
-        create: true
-    ~/.config/karabiner.edn:
-        path: config/karabiner.edn
-        create: true
-    ~/.ssh/config:
-        path: ssh/config
-        create: true
-
+      ~/.bash_profile: bash_profile
+      ~/.bashrc: bashrc
+      ~/.gitconfig: gitconfig
+      ~/.p10k.zsh: p10k.zsh
+      ~/.zprofile: zprofile
+      ~/.zshrc: zshrc
+      ~/.zshenv:
+          path: zshenv
+          create: true
+      ~/.config/karabiner:
+          path: config/karabiner/
+          create: true
+      ~/.hammerspoon:
+          path: hammerspoon/
+          create: true
+      ~/.config/karabiner.edn:
+          path: config/karabiner.edn
+          create: true
+      ~/.ssh/config:
+          path: ssh/config
+          create: true
 
 - shell:
-    - [git submodule update --init --recursive, Installing submodules]
+      - [git submodule update --init --recursive, Installing submodules]

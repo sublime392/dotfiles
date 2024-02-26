@@ -1,10 +1,8 @@
 {
   "global" : {
-    "ask_for_confirmation_before_quitting" : true,
     "check_for_updates_on_startup" : true,
     "show_in_menu_bar" : true,
-    "show_profile_name_in_menu_bar" : false,
-    "unsafe_ui" : false
+    "show_profile_name_in_menu_bar" : false
   },
   "profiles" : [ {
     "complex_modifications" : {
@@ -172,49 +170,7 @@
         } ]
       } ]
     },
-    "devices" : [ {
-      "mouse_swap_xy" : false,
-      "identifiers" : {
-        "is_game_pad" : false,
-        "is_keyboard" : true,
-        "is_pointing_device" : false,
-        "product_id" : 835,
-        "vendor_id" : 1452
-      },
-      "fn_function_keys" : [ ],
-      "ignore" : false,
-      "disable_built_in_keyboard_if_exists" : false,
-      "mouse_flip_vertical_wheel" : false,
-      "game_pad_swap_sticks" : false,
-      "mouse_flip_horizontal_wheel" : false,
-      "manipulate_caps_lock_led" : true,
-      "mouse_flip_y" : false,
-      "mouse_swap_wheels" : false,
-      "simple_modifications" : [ ],
-      "treat_as_built_in_keyboard" : false,
-      "mouse_flip_x" : false
-    }, {
-      "mouse_swap_xy" : false,
-      "identifiers" : {
-        "is_game_pad" : false,
-        "is_keyboard" : false,
-        "is_pointing_device" : true,
-        "product_id" : 835,
-        "vendor_id" : 1452
-      },
-      "fn_function_keys" : [ ],
-      "ignore" : true,
-      "disable_built_in_keyboard_if_exists" : false,
-      "mouse_flip_vertical_wheel" : false,
-      "game_pad_swap_sticks" : false,
-      "mouse_flip_horizontal_wheel" : false,
-      "manipulate_caps_lock_led" : false,
-      "mouse_flip_y" : false,
-      "mouse_swap_wheels" : false,
-      "simple_modifications" : [ ],
-      "treat_as_built_in_keyboard" : false,
-      "mouse_flip_x" : false
-    } ],
+    "devices" : [ ],
     "fn_function_keys" : [ {
       "from" : {
         "key_code" : "f1"
@@ -2337,204 +2293,6 @@
               "to_after_key_up" : [ {
                 "set_variable" : {
                   "name" : "caps_lock-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        } ]
-      }, {
-        "description" : "ukey (utilities)",
-        "manipulators" : [ {
-          "from" : {
-            "key_code" : "equal_sign"
-          },
-          "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"Music Volume Up\"'"
-          } ],
-          "conditions" : [ {
-            "name" : "u-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "u-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"Music Volume Up\"'"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "u"
-            }, {
-              "key_code" : "equal_sign"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "u-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        }, {
-          "from" : {
-            "key_code" : "hyphen"
-          },
-          "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"Music Volume Down\"'"
-          } ],
-          "conditions" : [ {
-            "name" : "u-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "u-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"Music Volume Down\"'"
-          } ],
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "u"
-            }, {
-              "key_code" : "hyphen"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "u-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        } ]
-      }, {
-        "description" : "ukey shift (utilities)",
-        "manipulators" : [ {
-          "from" : {
-            "key_code" : "equal_sign",
-            "modifiers" : {
-              "mandatory" : [ "left_shift" ]
-            }
-          },
-          "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"Music Volume Up Biggly\"'"
-          } ],
-          "conditions" : [ {
-            "name" : "u-shift-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "u-shift-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"Music Volume Up Biggly\"'"
-          } ],
-          "from" : {
-            "modifiers" : {
-              "mandatory" : [ "left_shift" ]
-            },
-            "simultaneous" : [ {
-              "key_code" : "u"
-            }, {
-              "key_code" : "equal_sign"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "u-shift-mode",
-                  "value" : 0
-                }
-              } ]
-            }
-          }
-        }, {
-          "from" : {
-            "key_code" : "hyphen",
-            "modifiers" : {
-              "mandatory" : [ "left_shift" ]
-            }
-          },
-          "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"Music Volume Down Biggly\"'"
-          } ],
-          "conditions" : [ {
-            "name" : "u-shift-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "type" : "basic",
-          "parameters" : {
-            "basic.simultaneous_threshold_milliseconds" : 250
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "u-shift-mode",
-              "value" : 1
-            }
-          }, {
-            "shell_command" : "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"Music Volume Down Biggly\"'"
-          } ],
-          "from" : {
-            "modifiers" : {
-              "mandatory" : [ "left_shift" ]
-            },
-            "simultaneous" : [ {
-              "key_code" : "u"
-            }, {
-              "key_code" : "hyphen"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : true,
-              "key_down_order" : "strict",
-              "key_up_order" : "strict_inverse",
-              "key_up_when" : "any",
-              "to_after_key_up" : [ {
-                "set_variable" : {
-                  "name" : "u-shift-mode",
                   "value" : 0
                 }
               } ]
@@ -9782,49 +9540,7 @@
         } ]
       } ]
     },
-    "devices" : [ {
-      "mouse_swap_xy" : false,
-      "identifiers" : {
-        "is_game_pad" : false,
-        "is_keyboard" : true,
-        "is_pointing_device" : false,
-        "product_id" : 835,
-        "vendor_id" : 1452
-      },
-      "fn_function_keys" : [ ],
-      "ignore" : false,
-      "disable_built_in_keyboard_if_exists" : false,
-      "mouse_flip_vertical_wheel" : false,
-      "game_pad_swap_sticks" : false,
-      "mouse_flip_horizontal_wheel" : false,
-      "manipulate_caps_lock_led" : true,
-      "mouse_flip_y" : false,
-      "mouse_swap_wheels" : false,
-      "simple_modifications" : [ ],
-      "treat_as_built_in_keyboard" : false,
-      "mouse_flip_x" : false
-    }, {
-      "mouse_swap_xy" : false,
-      "identifiers" : {
-        "is_game_pad" : false,
-        "is_keyboard" : false,
-        "is_pointing_device" : true,
-        "product_id" : 835,
-        "vendor_id" : 1452
-      },
-      "fn_function_keys" : [ ],
-      "ignore" : true,
-      "disable_built_in_keyboard_if_exists" : false,
-      "mouse_flip_vertical_wheel" : false,
-      "game_pad_swap_sticks" : false,
-      "mouse_flip_horizontal_wheel" : false,
-      "manipulate_caps_lock_led" : false,
-      "mouse_flip_y" : false,
-      "mouse_swap_wheels" : false,
-      "simple_modifications" : [ ],
-      "treat_as_built_in_keyboard" : false,
-      "mouse_flip_x" : false
-    } ],
+    "devices" : [ ],
     "fn_function_keys" : [ {
       "from" : {
         "key_code" : "f1"
@@ -9915,14 +9631,7 @@
       "delay_milliseconds_before_open_device" : 1000
     },
     "selected" : true,
-    "simple_modifications" : [ {
-      "from" : {
-        "key_code" : "caps_lock"
-      },
-      "to" : [ {
-        "key_code" : "escape"
-      } ]
-    } ],
+    "simple_modifications" : [ ],
     "virtual_hid_keyboard" : {
       "country_code" : 0,
       "indicate_sticky_modifier_keys_state" : true,
