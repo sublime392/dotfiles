@@ -26,6 +26,10 @@ PATH=/opt/homebrew/opt/php/sbin:$PATH
 PATH=/opt/homebrew/opt/php/bin:$PATH
 PATH=/opt/homebrew/opt/ruby@2.7/bin:$PATH
 PATH=/opt/homebrew/lib/ruby/gems/2.7.0/bin:$PATH
+PATH="/opt/homebrew/opt/php@8.1/bin:$PATH"
+PATH="/opt/homebrew/opt/php@8.1/sbin:$PATH"
+
+export PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh" # This loads nvm
